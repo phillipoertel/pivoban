@@ -56,6 +56,8 @@ task :deploy => :environment do
     #invoke :'rails:db_migrate'
     #invoke :'rails:assets_precompile'
 
+    queue 'echo "Contents of the log file are as follows:"'
+
     queue! %[mkdir -p "#{current_path}/tmp"]
 
     to :launch do
