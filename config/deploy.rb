@@ -56,12 +56,12 @@ task :deploy => :environment do
     #invoke :'rails:db_migrate'
     #invoke :'rails:assets_precompile'
 
-    queue! %[mkdir -p "#{current_path}/tmp"]
+    queue! %[mkdir -p tmp]
 
     to :launch do
       queue "touch #{deploy_to}/tmp/restart.txt"
     end
-    
+
     # This optional block defines how a broken release should be cleaned up.
     to :clean do
       queue 'log "failed deployment"'
