@@ -13,7 +13,7 @@ require 'mina/git'
 set :user, 'root'
 set :domain, 'pivoban.torial.com'
 set :deploy_to, '/data/dev/www/pivoban'
-set :repository, ''
+set :repository, 'git@github.com:phillipoertel/pivoban.git'
 set :branch, 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
