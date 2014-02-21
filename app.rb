@@ -1,5 +1,7 @@
 require 'sinatra'
+require "slim"
+require "sinatra/reloader" if development?
 
-get '/hi' do
-  "Hello World!"
+get '/' do
+  slim :index
 end
