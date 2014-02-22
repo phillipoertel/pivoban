@@ -40,7 +40,7 @@ task :deploy => :environment do
     queue! %[mkdir -p tmp]
 
     to :launch do
-      queue "touch #{deploy_to}/tmp/restart.txt"
+      queue "touch #{deploy_to}/current/tmp/restart.txt"
     end
 
     # This optional block defines how a broken release should be cleaned up.
