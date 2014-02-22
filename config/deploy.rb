@@ -30,6 +30,9 @@ end
 
 desc "Deploys the current version to the server."
 task :deploy => :environment do
+
+  # all of this runs in a temporary build directory
+  # like /data/dev/www/pivoban/tmp/build-139308935028704
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
@@ -39,7 +42,7 @@ task :deploy => :environment do
 
     queue! %[mkdir -p tmp]
 
-    queue! %[echo `pwd`]
+    queue! %[echo `ls -lah`]
     queue! %[bundle exec whenever --update-crontab]
 
     to :launch do
