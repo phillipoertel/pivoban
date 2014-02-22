@@ -4,6 +4,7 @@ GEM
     backports (3.6.0)
     daemons (1.1.9)
     eventmachine (1.0.3)
+    json (1.8.1)
     mina (0.3.0)
       open4
       rake
@@ -40,6 +41,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  json
   mina
   sinatra
   sinatra-contrib
