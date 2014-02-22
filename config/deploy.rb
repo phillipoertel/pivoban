@@ -42,10 +42,9 @@ task :deploy => :environment do
 
     queue! %[mkdir -p tmp]
 
-    queue! %[echo `ls -lah`]
-    queue! %[bundle exec whenever --update-crontab]
-
     to :launch do
+      # must be done after the deploy directory has it's final name
+      queue! %[bundle exec whenever --update-crontab]
       queue "touch #{deploy_to}/current/tmp/restart.txt"
     end
 
