@@ -40,7 +40,7 @@ task :deploy => :environment do
     queue! %[mkdir -p tmp]
 
     queue! %[bundle exec whenever --update-crontab]
-    queue! %[pwd]
+    queue! %[echo `pwd`]
 
     to :launch do
       queue "touch #{deploy_to}/current/tmp/restart.txt"
