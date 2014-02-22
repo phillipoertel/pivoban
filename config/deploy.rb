@@ -10,7 +10,7 @@ set :branch, 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, %w(log config)
+set :shared_paths, %w(log)
 
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
