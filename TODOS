@@ -1,0 +1,12 @@
+Cycle times chart
+- Daten:
+	- Features, geordnet nach Datum der Fertigstellung
+	- für jedes Feature Cycle Time berechnen
+- Visualisierung
+	- x: i/offset; Label: Story-Id
+	- y: Lead time
+
+
+Bugs chart
+- Bugs opened
+- bugs closed
