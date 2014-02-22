@@ -4,6 +4,9 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'json'
 
+# generate crontab entries with a nice DSL
+gem 'whenever', :require => false
+
 # a better haml-like template engine
 gem 'slim'
 
