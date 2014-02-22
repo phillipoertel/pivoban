@@ -1,6 +1,7 @@
 Daten:
 - lead times start bei (erster) Priorisierung
-- warum 
+- warum fehlen bei einigen stories start und accepted times (z.b. 60494354, 60780094)
+
 Cycle times chart
 - Daten:
 	- Features, geordnet nach Datum der Fertigstellung

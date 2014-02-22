@@ -1,3 +1,5 @@
+require_relative 'http_helper'
+
 class ProjectStories
   
   extend HttpHelper
@@ -13,7 +15,7 @@ class ProjectStories
   def self.get(project_id)    
     # type: feature, Bug, Chore or Release.
     # state: unscheduled, unstarted, started, finished, delivered, accepted, or rejected
-    params = { filter: "created_after:08/01/2013", limit: 20 }
+    params = { filter: "created_after:2014-01-01", limit: 1_000 }
     stories = request(project_id, params)
     out = []
     #features = data.select { |story| story['story_type'] == "bug"}

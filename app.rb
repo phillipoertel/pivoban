@@ -11,17 +11,24 @@ require "sinatra/config_file"
 # require own classes
 #
 require_relative 'lib/bug_data'
+require_relative 'lib/pivotal/story_activity_data'
 
 # 
 # configuration
 # 
 # http://www.sinatrarb.com/contrib/config_file.html
-config_file 'config/settings.yml'
+config = YAML.load_file('config/settings.yml')
+PROJECT_ID = config['project_id']
+TOKEN      = config['api_token']
 set :slim, pretty: true
 
 get '/' do
-  @settings = settings
   slim :index
+end
+
+get '/story/:id' do
+  @story = StoryActivityData.get(params[:id])
+  slim :story
 end
 
 get '/bugs.json' do

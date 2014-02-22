@@ -1,7 +1,14 @@
+require 'csv'
+require_relative 'pivotal/project_stories'
+require_relative 'pivotal/story_activity_data'
+
 class Runner
 
   def self.run
-    stories = ProjectStories.get(PROJECT_ID)
+
+
+    #stories = ProjectStories.get(PROJECT_ID)
+    stories = [61550672].map { |id| OpenStruct.new(id: id) }
     stories.each do |story|
       p story.id
       activity = StoryActivityData.get(story.id)

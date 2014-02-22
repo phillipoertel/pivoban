@@ -1,3 +1,5 @@
+require_relative 'http_helper'
+
 class StoryData
 
   extend HttpHelper

@@ -1,0 +1,22 @@
+h1 Story #{@story.story_id}
+
+h2 Story data
+
+table
+  - @story.marshal_dump.each do |key, value|
+    - next if key == :history
+    tr
+      td= key
+      td= value
+
+h2 History
+
+table
+  - @story.history.each do |change|
+    tr
+      td= Time.parse(change['occurred_at']).strftime("%F %R")
+      - if %w(added estimated started finished accepted moved\ and\ scheduled).include?(change['highlight'])
+        td 
+          b= change['highlight']
+      - else
+        td= change['highlight']

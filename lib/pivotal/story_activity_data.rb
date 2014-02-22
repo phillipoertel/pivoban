@@ -1,5 +1,11 @@
+require 'ostruct'
+require_relative 'http_helper'
+
 class StoryActivityData
+
   extend HttpHelper
+
+  SEC_TO_DAYS_MULTIPLIER = 24 * 60 * 60
 
   def self.request(story_id)
     url = "https://www.pivotaltracker.com/services/v5/projects/#{PROJECT_ID}/stories/#{story_id}/activity"
@@ -8,8 +14,14 @@ class StoryActivityData
 
   def self.get(story_id)
     data = request(story_id)
-    p data
-    out  = OpenStruct.new(lead_time: nil, cycle_time: nil, accepted: false)
+    
+    out  = OpenStruct.new(
+      story_id: story_id, 
+      history: data,
+      lead_time: nil, 
+      cycle_time: nil, 
+      accepted: false
+    )
 
     # created
     # TODO find the moment when story was selected to be developed. "moved and scheduled?"
